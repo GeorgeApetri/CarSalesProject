@@ -2,6 +2,7 @@ package client;
 
 public class ClientCLI {
 
+
     public void readClientDetails() {
 
         ClientService clientService = new ClientService();
