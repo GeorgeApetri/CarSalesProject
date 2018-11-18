@@ -9,7 +9,7 @@ public class ClientService {
         System.out.println();
         System.out.println( "introduceti numele persoanei pentru care se face aceasta configurare: " );
         System.out.println();
-        
+
     }
 
 
