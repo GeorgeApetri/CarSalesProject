@@ -1,26 +1,29 @@
 package client;
-import java.util.Scanner;
+
+import java.util.List;
 
 public class ClientService {
 
-    public void insertClientDetail() {
+    ClientFileStorage clientFileStorage = new ClientFileStorage();
 
-        System.out.println();
-        System.out.println( "introduceti numele persoanei pentru care se face aceasta configurare: " );
-        System.out.println();
-
-        Scanner scanner = new Scanner( System.in );
-        String name = scanner.nextLine();
-        Client client = new Client( name );
-        System.out.println( "configurare pentru " + client.getName() + ":" );
-
-
+    public void addClient (Client client) {
+        clientFileStorage.add( client );
     }
 
-
-    public void previewClientDetails() {
-
-
-
+    public void deleteClient (Client client) {
+        clientFileStorage.delete( client );
     }
+
+    public Client getClientById (int id) {
+        return clientFileStorage.getById( id );
+    }
+
+    public void updateClient (Client client) {
+        clientFileStorage.update( client );
+    }
+
+    public List<Client> getAllClients() {
+        return clientFileStorage.getAll();
+    }
+
 }
