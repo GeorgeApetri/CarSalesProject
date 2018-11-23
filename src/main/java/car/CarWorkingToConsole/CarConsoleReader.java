@@ -26,16 +26,19 @@ public class CarConsoleReader {
         car.setEngineCapacity( scanner.nextInt() );
 
         System.out.println("tank capacity");
-        car.setTankCapacity( scanner.nextInt() );
+//        todo calculateTankCapacity
+        System.out.println("calculateTankCapacity");
 
         System.out.println("fuel consumption");
-        car.setFuelConsumption( scanner.nextDouble() );
+//        todo calculateFuelConsumption
+        System.out.println("calculateFuelConsumption");
 
         System.out.println("emission");
-        car.setEmissions( scanner.nextInt() );
+//        todo calculateEmission
+        System.out.println("calculateEmission");
 
         System.out.println("color");
-        car.setColor( scanner.nextLine() );
+        car.setColor( scanner.next() );
 
         return car;
 
