@@ -28,7 +28,6 @@ public class CarConsoleReader {
             car.setCategory( "sedan" );
         }
 
-
         int optionCombustible;
         System.out.println( "combustible" );
         System.out.println();
@@ -42,27 +41,56 @@ public class CarConsoleReader {
             car.setCombustible( "diesel" );
         }
 
-
+        int optionTransmission;
         System.out.println( "transmission" );
-        car.setTransmission( scanner.next() );
+        System.out.println();
+        System.out.println( "1   automatic" );
+        System.out.println( "2   manual" );
+        optionTransmission = scanner.nextInt();
+        if (optionTransmission == 1) {
+            car.setTransmission( "automatic" );
+        }
+        if (optionTransmission == 2) {
+            car.setTransmission( "manual" );
+        }
 
+        int optionEngineCapacity;
         System.out.println( "engine capacity" );
-        car.setEngineCapacity( scanner.nextInt() );
+        System.out.println();
+        System.out.println( "1   1500" );
+        System.out.println( "2   2000" );
+        optionEngineCapacity = scanner.nextInt();
+        if (optionEngineCapacity == 1) {
+            car.setEngineCapacity( 1500 );
+        }
+        if (optionEngineCapacity == 2) {
+            car.setEngineCapacity( 2000 );
+        }
 
         System.out.println( "tank capacity" );
 //        todo calculateTankCapacity
-        System.out.println( "calculateTankCapacity" );
+        car.setTankCapacity( 70 );
 
         System.out.println( "fuel consumption" );
 //        todo calculateFuelConsumption
-        System.out.println( "calculateFuelConsumption" );
+        car.setFuelConsumption( 5.5 );
 
         System.out.println( "emission" );
 //        todo calculateEmission
-        System.out.println( "calculateEmission" );
+        car.setEmissions( 80 );
 
+        int optionColor;
         System.out.println( "color" );
-        car.setColor( scanner.next() );
+        System.out.println();
+        System.out.println( "1   red" );
+        System.out.println( "2   blue" );
+        optionColor = scanner.nextInt();
+        if (optionColor == 1) {
+            car.setColor( "red" );
+        }
+        if (optionColor == 2) {
+            car.setColor( "blue" );
+        }
 
         return car;
 
