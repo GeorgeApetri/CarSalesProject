@@ -1,17 +1,28 @@
 package order;
 
+import car.Car;
+import client.Client;
+
+import java.util.List;
+
 public class OrderService {
 
     OrderFileStorage orderFileStorage = new OrderFileStorage();
-//    private ClientService clientService = ServiceInstances.getInstance().getClientService();
 
-    public void addTransaction(Order order) {
+    public void addTransaction(Client client, Car car, int quantity) {
+
+        Order order = new Order(  );
+        order.setClient( client );
+        order.setCar( car );
+        order.setQuantity( quantity );
 
         orderFileStorage.addOrder( order );
-
-//        Client client = clientService.getClientById( clientId );
+//        System.out.println(order.toString());
 
     }
 
+    public List<Order> getAllOrder() {
+        return orderFileStorage.getAll();
+    }
 
 }

@@ -1,26 +1,24 @@
 package order;
 
+import car.Car;
+import client.Client;
+
 public class Order {
 
     private int idOrder;
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String category;
-//    private Client client;
-//    private Car car;
+    private Client client;
+    private Car car;
+    private int quantity;
 
+    public Order(int idOrder, Client client, Car car, int quantity) {
+        this.idOrder = idOrder;
+        this.client = client;
+        this.car = car;
+        this.quantity = quantity;
+    }
 
     public Order() {
 
-    }
-
-    public Order(int idOrder, String firstName, String lastName, String address, String category) {
-        this.idOrder = idOrder;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.category = category;
     }
 
     public int getIdOrder() {
@@ -31,36 +29,36 @@ public class Order {
         this.idOrder = idOrder;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Client getClient() {
+        return client;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public String getLastName() {
-        return lastName;
+    public Car getCar() {
+        return car;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setCar(Car car) {
+        this.car = car;
     }
 
-    public String getAddress() {
-        return address;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    @Override
+    public String toString() {
+        return "Order = " +
+                "idOrder: " + idOrder + '\'' +
+                "client: " + client + '\'' +
+                "car: " + car + '\'' +
+                "quantity: " + quantity;
     }
 }
-

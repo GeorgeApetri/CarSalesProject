@@ -23,4 +23,7 @@ public class OrderFileStorage {
         return max + 1;
     }
 
+    public List<Order> getAll() {
+        return orderList;
+    }
 }

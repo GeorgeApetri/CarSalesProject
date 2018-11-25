@@ -102,4 +102,18 @@ public class Car {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Car = " + '\'' +
+                "idCar: " + idCar +
+                "category: " + category + '\'' +
+                "combustible: " + combustible + '\'' +
+                "transmission: " + transmission + '\'' +
+                "engineCapacity: " + engineCapacity + '\'' +
+                "tankCapacity: " + tankCapacity + '\'' +
+                "fuelConsumption: " + fuelConsumption + '\'' +
+                "emissions: " + emissions + '\'' +
+                "color: " + color;
+    }
 }

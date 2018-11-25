@@ -5,11 +5,14 @@ import java.util.List;
 
 public class CarFileStorage extends GenericStore<Car> {
 
-    private List<Car> carList = new ArrayList<Car>();
+    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\cars.json";
+
+    private List<Car> carList = new ArrayList<>();
 
     public Car add(Car value) {
         value.setIdCar( generateId() );
         carList.add( value );
+        writeJson();
         return value;
     }
 
@@ -24,14 +27,14 @@ public class CarFileStorage extends GenericStore<Car> {
 
     public void delete(Car value) {
         carList.remove( value );
-
+        writeJson();
     }
 
     public void update(Car value) {
         Car oldCar = getById( value.getIdCar() );
         carList.remove( oldCar );
         carList.add( value );
-
+        writeJson();
     }
 
     public List<Car> getAll() {
@@ -45,5 +48,10 @@ public class CarFileStorage extends GenericStore<Car> {
             }
         }
         return null;
+    }
+
+    @Override
+    public String getFilePath() {
+        return filePath;
     }
 }

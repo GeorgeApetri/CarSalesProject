@@ -84,4 +84,15 @@ public class Client implements Comparable<Client> {
 //        }
         return idClient - o.idClient;
     }
+
+    @Override
+    public String toString() {
+        return "Client = " + '\'' +
+                "idClient: " + idClient + '\'' +
+                "firstName: " + firstName + '\'' +
+                "lastName: " + lastName + '\'' +
+                "address: " + address + '\'' +
+                "email: " + email + '\'' +
+                "phone: " + phone;
+    }
 }
