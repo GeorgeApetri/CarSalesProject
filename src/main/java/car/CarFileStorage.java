@@ -1,5 +1,7 @@
 package car;
 
+import util.GenericStore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class CarFileStorage extends GenericStore<Car> {
 
     private List<Car> carList = new ArrayList<>();
 
+    @Override
     public Car add(Car value) {
         value.setIdCar( generateId() );
         carList.add( value );
@@ -22,14 +25,17 @@ public class CarFileStorage extends GenericStore<Car> {
             if (max < car.getIdCar()) {
                 max = car.getIdCar();
             }
-        }return max + 1;
+        }
+        return max + 1;
     }
 
+    @Override
     public void delete(Car value) {
         carList.remove( value );
         writeJson();
     }
 
+    @Override
     public void update(Car value) {
         Car oldCar = getById( value.getIdCar() );
         carList.remove( oldCar );
@@ -37,10 +43,12 @@ public class CarFileStorage extends GenericStore<Car> {
         writeJson();
     }
 
+    @Override
     public List<Car> getAll() {
         return carList;
     }
 
+    @Override
     public Car getById(int id) {
         for (Car car : carList) {
             if (car.getIdCar() == id) {

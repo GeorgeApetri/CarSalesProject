@@ -1,5 +1,6 @@
 package client;
 
+import util.GenericStore;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,12 +8,15 @@ import java.util.List;
 
 public class ClientFileStorage extends GenericStore<Client> {
 
+    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\cars.json";
+
     private List<Client> clientList = new ArrayList<Client>(  );
 
     @Override
     public Client add(Client value) {
         value.setIdClient(generateId());
         clientList.add( value );
+        writeJson();
         return value;
     }
 
@@ -29,7 +33,7 @@ public class ClientFileStorage extends GenericStore<Client> {
     @Override
     public void delete(Client value) {
         clientList.remove( value );
-
+        writeJson();
     }
 
     @Override
@@ -37,6 +41,7 @@ public class ClientFileStorage extends GenericStore<Client> {
         Client oldClient = getById( value.getIdClient() );
         clientList.remove( oldClient );
         clientList.add( value );
+        writeJson();
 
     }
 
@@ -55,6 +60,11 @@ public class ClientFileStorage extends GenericStore<Client> {
             }
         }
         return null;
+    }
+
+    @Override
+    public String getFilePath() {
+        return filePath;
     }
 }
 

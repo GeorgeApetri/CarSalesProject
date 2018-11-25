@@ -1,10 +1,9 @@
-package order.OrderWorkingToConsole;
+package order;
 
 import car.Car;
 import car.CarService;
 import client.Client;
 import client.ClientService;
-import order.OrderService;
 import util.ServiceInstances;
 
 import java.util.Scanner;
