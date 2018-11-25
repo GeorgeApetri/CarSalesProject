@@ -88,7 +88,7 @@ public class OrderConsoleMenu {
 
     private void displayAllTransaction() {
         orderService.getAllOrder();
-        System.out.print(orderService.getAllOrder().toString());
+        System.out.println(orderService.getAllOrder().toString());
     }
 
 }

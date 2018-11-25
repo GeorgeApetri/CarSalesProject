@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClientFileStorage extends GenericStore<Client> {
 
-    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\cars.json";
+    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\client.json";
 
     private List<Client> clientList = new ArrayList<Client>(  );
 
