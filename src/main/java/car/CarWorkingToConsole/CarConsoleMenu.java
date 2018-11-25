@@ -2,13 +2,14 @@ package car.CarWorkingToConsole;
 
 import car.Car;
 import car.CarService;
+import util.ServiceInstances;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class CarConsoleMenu {
 
-    CarService carService = new CarService();
+    CarService carService = ServiceInstances.getInstance().getCarService();
     CarConsoleWriter carConsoleWriter = new CarConsoleWriter();
     CarConsoleReader carConsoleReader = new CarConsoleReader();
 

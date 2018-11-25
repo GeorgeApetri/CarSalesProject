@@ -1,6 +1,6 @@
 package client;
 
-public class Client {
+public class Client implements Comparable<Client> {
 
     private int idClient;
     private String firstName;
@@ -73,4 +73,15 @@ public class Client {
         this.phone = phone;
     }
 
+    public int compareTo(Client o) {
+
+//        if (idClient<o.idClient){
+//            return -1;
+//        } else if(idClient==o.idClient){
+//            return 0;
+//        } else {
+//            return 1;
+//        }
+        return idClient - o.idClient;
+    }
 }

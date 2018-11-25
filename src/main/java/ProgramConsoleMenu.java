@@ -1,5 +1,6 @@
 import car.CarWorkingToConsole.CarConsoleMenu;
-import client.ClientWorkingToConsole.*;
+import client.ClientWorkingToConsole.ClientConsoleMenu;
+import order.OrderWorkingToConsole.OrderConsoleMenu;
 
 import java.util.Scanner;
 
@@ -7,6 +8,7 @@ public class ProgramConsoleMenu {
 
     private ClientConsoleMenu clientConsoleMenu = new ClientConsoleMenu();
     private CarConsoleMenu carConsoleMenu = new CarConsoleMenu();
+    private OrderConsoleMenu orderConsoleMenu = new OrderConsoleMenu();
 
 
     public void displayConsoleMenu() {
@@ -34,6 +36,7 @@ public class ProgramConsoleMenu {
                     clientConsoleMenu.displayMenuClients();
                     break;
                 case 3:
+                    orderConsoleMenu.displayMenuOrder();
                     break;
             }
 

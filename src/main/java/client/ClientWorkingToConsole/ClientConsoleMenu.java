@@ -2,13 +2,14 @@ package client.ClientWorkingToConsole;
 
 import client.Client;
 import client.ClientService;
+import util.ServiceInstances;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class ClientConsoleMenu {
 
-    ClientService clientService = new ClientService();
+    ClientService clientService = ServiceInstances.getInstance().getClientService();
     ClientConsoleWriter clientConsoleWriter = new ClientConsoleWriter();
     ClientConsoleReader clientConsoleReader = new ClientConsoleReader();
 

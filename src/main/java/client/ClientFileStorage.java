@@ -2,6 +2,7 @@ package client;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ClientFileStorage extends GenericStore<Client> {
@@ -41,6 +42,7 @@ public class ClientFileStorage extends GenericStore<Client> {
 
     @Override
     public List<Client> getAll() {
+        Collections.sort(clientList);
         return clientList;
     }
 
