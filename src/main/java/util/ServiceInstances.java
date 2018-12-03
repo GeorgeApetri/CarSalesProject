@@ -3,6 +3,7 @@ package util;
 import car.CarService;
 import client.ClientService;
 import order.OrderService;
+import validatedOrder.ValidatedOrderService;
 
 public class ServiceInstances {
 
@@ -11,6 +12,7 @@ public class ServiceInstances {
     private ClientService clientService = new ClientService();
     private CarService carService = new CarService();
     private OrderService orderService = new OrderService();
+    private ValidatedOrderService validatedOrderService = new ValidatedOrderService();
 
     private ServiceInstances() {
     }

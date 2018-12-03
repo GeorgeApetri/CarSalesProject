@@ -3,6 +3,7 @@ package car;
 import util.GenericStore;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CarFileStorage extends GenericStore<Car> {
@@ -45,6 +46,7 @@ public class CarFileStorage extends GenericStore<Car> {
 
     @Override
     public List<Car> getAll() {
+        Collections.sort( carList );
         return carList;
     }
 

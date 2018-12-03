@@ -3,7 +3,7 @@ package order;
 import car.Car;
 import client.Client;
 
-public class Order {
+public class Order implements Comparable<Order> {
 
     private int idOrder;
     private Client client;
@@ -53,12 +53,13 @@ public class Order {
         this.quantity = quantity;
     }
 
+    public int compareTo (Order o) {
+        return idOrder - o.idOrder;
+    }
+
     @Override
     public String toString() {
-        return "Order = " +
-                "idOrder: " + idOrder + '\'' +
-                "client: " + client + '\'' +
-                "car: " + car + '\'' +
-                "quantity: " + quantity;
+        return "ID order: " + idOrder + "\n" + "client: " + client + "\n" + "car: " + car + "\n"
+                + "quantity: " + quantity;
     }
 }

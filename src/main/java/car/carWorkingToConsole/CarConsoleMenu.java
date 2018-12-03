@@ -1,4 +1,4 @@
-package car.CarWorkingToConsole;
+package car.carWorkingToConsole;
 
 import car.Car;
 import car.CarService;
@@ -6,6 +6,7 @@ import util.ServiceInstances;
 
 import java.util.List;
 import java.util.Scanner;
+
 
 public class CarConsoleMenu {
 
@@ -19,11 +20,15 @@ public class CarConsoleMenu {
         int option;
         do {
             displayCarOption();
-            System.out.println("select car option");
-            System.out.println();
+            System.out.println("select car option: \n");
             option = scanner.nextInt();
             switch (option) {
                 case 0:
+                    System.out.println( "Program menu: \n" );
+                    System.out.println( "0  Exit" );
+                    System.out.println( "1  Cars" );
+                    System.out.println( "2  Clients" );
+                    System.out.println( "3  Orders \n" );
                     break;
                 case 1:
                     displayCars();
@@ -39,19 +44,18 @@ public class CarConsoleMenu {
                     break;
             }
         } while (option != 0);
+
     }
+
 
     private void displayCarOption() {
 
-        System.out.println();
-        System.out.println("car menu");
-        System.out.println();
+        System.out.println("car menu: \n");
         System.out.println("0   exit");
         System.out.println("1   display all car");
         System.out.println("2   add car");
         System.out.println("3   edit car");
-        System.out.println("4   delete car");
-        System.out.println();
+        System.out.println("4   delete car \n");
 
     }
 
@@ -69,36 +73,32 @@ public class CarConsoleMenu {
         CarConsoleReader carConsoleReader = new CarConsoleReader();
         Car car = carConsoleReader.readCarData();
         carService.addCar( car );
-        System.out.println();
-        System.out.println("car successfully added");
-        System.out.println();
+        System.out.println("car successfully added. \n");
 
     }
 
     private void editCar() {
 
         Scanner scanner = new Scanner( System.in );
-        System.out.println("which car do you want to edit? enter ID");
+        System.out.println("which car do you want to edit? enter ID: ");
+        displayCars();
         int id = scanner.nextInt();
         Car car = carService.getCarById( id );
-        car = carConsoleReader.editCategory( car );
+        car = carConsoleReader.editCarData( car );
         carService.updateCar( car );
-        System.out.println();
-        System.out.println("car successfully edited");
-        System.out.println();
+        System.out.println("car successfully edited. \n");
 
     }
 
     private void deleteCar() {
 
         Scanner scanner = new Scanner( System.in );
-        System.out.println("which car do you want to delete? enter ID");
+        System.out.println("which car do you want to delete? enter ID: ");
+        displayCars();
         int id = scanner.nextInt();
         Car car = carService.getCarById( id );
         carService.deleteCar(car);
-        System.out.println();
-        System.out.println("car successfully deleted");
-        System.out.println();
+        System.out.println("car successfully deleted. \n");
 
     }
 

@@ -1,4 +1,4 @@
-package client.ClientWorkingToConsole;
+package client.clientWorkingToConsole;
 
 import client.Client;
 import client.ClientService;
@@ -19,11 +19,15 @@ public class ClientConsoleMenu {
         int option;
         do {
             displayClientOption();
-            System.out.println("select option");
-            System.out.println();
+            System.out.println("select client option: \n");
             option = scanner.nextInt();
             switch (option) {
                 case 0:
+                    System.out.println( "Program menu: \n" );
+                    System.out.println( "0  Exit" );
+                    System.out.println( "1  Cars" );
+                    System.out.println( "2  Clients" );
+                    System.out.println( "3  Orders \n" );
                     break;
                 case 1:
                     displayClients();
@@ -44,15 +48,12 @@ public class ClientConsoleMenu {
 
     private void displayClientOption() {
 
-        System.out.println();
-        System.out.println("client menu");
-        System.out.println();
+        System.out.println("client menu: \n");
         System.out.println("0   exit");
         System.out.println("1   display all clients");
         System.out.println("2   add client");
         System.out.println("3   edit client");
-        System.out.println("4   delete client");
-        System.out.println();
+        System.out.println("4   delete client \n");
 
     }
 
@@ -71,36 +72,32 @@ public class ClientConsoleMenu {
         ClientConsoleReader clientConsoleReader = new ClientConsoleReader();
         Client client = clientConsoleReader.readClientData();
         clientService.addClient( client );
-        System.out.println();
-        System.out.println("client successfully added");
-        System.out.println();
+        System.out.println("client successfully added. \n");
 
     }
 
     private void editClient(){
 
         Scanner scanner = new Scanner( System.in );
-        System.out.println("which client do you want to edit? enter ID");
+        System.out.println("which client do you want to edit? enter ID: ");
+        displayClients();
         int id = scanner.nextInt();
         Client client= clientService.getClientById( id );
-        client = clientConsoleReader.editAddress( client );
+        client = clientConsoleReader.editClientData( client );
         clientService.updateClient( client );
-        System.out.println();
-        System.out.println("client successfully edited");
-        System.out.println();
+        System.out.println("client successfully edited. \n");
 
     }
 
     private void deleteClient() {
 
         Scanner scanner = new Scanner( System.in );
-        System.out.println("which client do you want to delete? enter ID");
+        System.out.println("which client do you want to delete? enter ID: ");
+        displayClients();
         int id = scanner.nextInt();
         Client client = clientService.getClientById( id );
         clientService.deleteClient(client);
-        System.out.println();
-        System.out.println("client successfully deleted");
-        System.out.println();
+        System.out.println("client successfully deleted. \n");
 
     }
 }

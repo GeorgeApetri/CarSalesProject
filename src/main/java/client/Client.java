@@ -7,14 +7,14 @@ public class Client implements Comparable<Client> {
     private String lastName;
     private String address;
     private String email;
-    private Integer phone;
+    private String phone;
 
 
     public Client() {
 
     }
 
-    public Client(int idClient, String firstName, String lastName, String address, String email, Integer phone) {
+    public Client(int idClient, String firstName, String lastName, String address, String email, String phone) {
 
         this.idClient = idClient;
         this.firstName = firstName;
@@ -65,11 +65,11 @@ public class Client implements Comparable<Client> {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -85,14 +85,10 @@ public class Client implements Comparable<Client> {
         return idClient - o.idClient;
     }
 
+
     @Override
     public String toString() {
-        return "Client = " + '\'' +
-                "idClient: " + idClient + '\'' +
-                "firstName: " + firstName + '\'' +
-                "lastName: " + lastName + '\'' +
-                "address: " + address + '\'' +
-                "email: " + email + '\'' +
-                "phone: " + phone;
+        return idClient + "\t" + firstName + "\t" + lastName + "\t" + address + "\t" + email + "\t" + phone;
     }
+
 }

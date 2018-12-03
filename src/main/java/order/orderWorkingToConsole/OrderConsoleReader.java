@@ -1,50 +1,30 @@
-package order;
+package order.orderWorkingToConsole;
 
 import car.Car;
 import car.CarService;
 import client.Client;
 import client.ClientService;
+import order.Order;
 import util.ServiceInstances;
 
 import java.util.Scanner;
 
-public class OrderConsoleMenu {
+public class OrderConsoleReader {
 
     private ClientService clientService = ServiceInstances.getInstance().getClientService();
     private CarService carService = ServiceInstances.getInstance().getCarService();
-    private OrderService orderService = ServiceInstances.getInstance().getOrderService();
 
-    public void displayMenuOrder() {
+    public Order readOrderData() {
 
-        Scanner scanner = new Scanner( System.in );
-        int option;
-        do {
-            displayOrderOption();
-            System.out.println( "order option \t" );
-            option = scanner.nextInt();
-            switch (option) {
-                case 0:
-                    break;
-                case 1:
-                    createNewTransaction();
-                    break;
-                case 2:
-                    displayAllTransaction();
-                    break;
-            }
-        }
-        while (option != 0);
+        Order order = new Order(  );
+
+        editOrderData( order );
+
+
+        return order;
     }
 
-    private void displayOrderOption() {
-
-        System.out.println( "display order option \t" );
-        System.out.println( "1   create new transaction" );
-        System.out.println( "2   display all transaction" );
-
-    }
-
-    private void createNewTransaction() {
+    public Order editOrderData(Order order){
 
         System.out.println( "choose client by ID \t" );
         for (Client client : clientService.getAllClients()) {
@@ -56,6 +36,7 @@ public class OrderConsoleMenu {
         while (client == null) {
             int option = scanner1.nextInt();
             client = clientService.getClientById( option );
+            order.setClient( client );
             if (client==null) {
                 System.out.println("The client you choose doesn't exist. Please insert different ID");
             }
@@ -72,6 +53,7 @@ public class OrderConsoleMenu {
         while (car == null) {
             int option2 = scanner2.nextInt();
             car = carService.getCarById( option2 );
+            order.setCar( car );
             if (car==null) {
                 System.out.println("The car you choose doesn't exist. Please insert different ID");
             }
@@ -82,13 +64,9 @@ public class OrderConsoleMenu {
         Scanner scanner3 = new Scanner( System.in );
         int quantity = scanner3.nextInt();
 
-        orderService.addTransaction( client, car, quantity );
+        order.setQuantity( quantity );
 
-    }
-
-    private void displayAllTransaction() {
-        orderService.getAllOrder();
-        System.out.println(orderService.getAllOrder().toString());
+        return order;
     }
 
 }
