@@ -29,6 +29,10 @@ public class ServiceInstances {
         return orderService;
     }
 
+    public ValidatedOrderService getValidatedOrderService() {
+        return validatedOrderService;
+    }
+
     public static ServiceInstances getInstance() {
         if (serviceInstances == null) {
             serviceInstances = new ServiceInstances();

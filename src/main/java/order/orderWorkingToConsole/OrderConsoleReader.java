@@ -20,13 +20,13 @@ public class OrderConsoleReader {
 
         editOrderData( order );
 
-
         return order;
     }
 
+
     public Order editOrderData(Order order){
 
-        System.out.println( "choose client by ID \t" );
+        System.out.println( "choose client by ID: " );
         for (Client client : clientService.getAllClients()) {
             System.out.println( client.toString() );
         }
@@ -43,7 +43,7 @@ public class OrderConsoleReader {
         }
 
 
-        System.out.println( "choose car by ID \t" );
+        System.out.println( "choose car by ID: " );
         for (Car car : carService.getAllCar()) {
             System.out.println( car.toString() );
         }
@@ -60,11 +60,11 @@ public class OrderConsoleReader {
         }
 
 
-        System.out.println("choose quantity");
+        System.out.println("choose quantity: ");
         Scanner scanner3 = new Scanner( System.in );
         int quantity = scanner3.nextInt();
-
         order.setQuantity( quantity );
+
 
         return order;
     }

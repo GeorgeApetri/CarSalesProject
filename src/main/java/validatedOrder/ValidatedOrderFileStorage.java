@@ -10,8 +10,6 @@ public class ValidatedOrderFileStorage extends GenericStore<ValidatedOrder> {
 
     private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\validatedOrder.json";
 
-//    private OrderService orderService = ServiceInstances.getInstance().getOrderService();
-
     private List<ValidatedOrder> validatedOrderList = new ArrayList<>(  );
 
 

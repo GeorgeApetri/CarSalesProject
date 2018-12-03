@@ -6,12 +6,16 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
 
     private int idValidateOrder;
     private Order order;
-    private double amount;
+    private double initialValue;
 
-    public ValidatedOrder(int idValidateOrder, Order order, double amount) {
+    public ValidatedOrder() {
+
+    }
+
+    public ValidatedOrder(int idValidateOrder, Order order, double initialValue) {
         this.idValidateOrder = idValidateOrder;
         this.order = order;
-        this.amount = amount;
+        this.initialValue = initialValue;
     }
 
     public int getIdValidateOrder() {
@@ -30,19 +34,19 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
         this.order = order;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getInitialValue() {
+        return initialValue;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setInitialValue(double initialValue) {
+        this.initialValue = initialValue;
     }
 
     @Override
     public String toString() {
         return "idValidateOrder: " + idValidateOrder + "\n"
                 + "order: " + order + "\n"
-                + "amount: " + amount;
+                + "initialValue: " + initialValue;
     }
 
     /**

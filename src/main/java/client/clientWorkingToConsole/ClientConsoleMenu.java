@@ -27,7 +27,8 @@ public class ClientConsoleMenu {
                     System.out.println( "0  Exit" );
                     System.out.println( "1  Cars" );
                     System.out.println( "2  Clients" );
-                    System.out.println( "3  Orders \n" );
+                    System.out.println( "3  Orders" );
+                    System.out.println( "4  Validated Orders \n" );
                     break;
                 case 1:
                     displayClients();
