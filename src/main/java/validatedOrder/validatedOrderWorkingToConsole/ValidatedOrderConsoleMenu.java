@@ -4,7 +4,6 @@ import util.ServiceInstances;
 import validatedOrder.ValidatedOrder;
 import validatedOrder.ValidatedOrderService;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ValidatedOrderConsoleMenu {
@@ -68,11 +67,10 @@ public class ValidatedOrderConsoleMenu {
     }
 
     private void displayValidatedOrder() {
-        List<ValidatedOrder> allValidatedOrder = validatedOrderService.getAllValidatedOrder();
-        for (ValidatedOrder validatedOrder : allValidatedOrder) {
-            validatedOrderConsoleWriter.displayValidatedOrderData(validatedOrder);
-        }
+
+        validatedOrderConsoleWriter.displayValidatedOrderData();
         System.out.println();
+
     }
 
     private void addValidatedOrder () {

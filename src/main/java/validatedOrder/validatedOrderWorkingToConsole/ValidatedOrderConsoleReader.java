@@ -4,14 +4,13 @@ import order.Order;
 import order.OrderService;
 import util.ServiceInstances;
 import validatedOrder.ValidatedOrder;
-import validatedOrder.ValidatedOrderService;
 
 import java.util.Scanner;
 
 public class ValidatedOrderConsoleReader {
 
     OrderService orderService = ServiceInstances.getInstance().getOrderService();
-    ValidatedOrderService validatedOrderService = ServiceInstances.getInstance().getValidatedOrderService();
+//    ValidatedOrderService validatedOrderService = ServiceInstances.getInstance().getValidatedOrderService();
 
     public ValidatedOrder readValidatedOrderData() {
 
@@ -22,7 +21,7 @@ public class ValidatedOrderConsoleReader {
         return validatedOrder;
     }
 
-    public ValidatedOrder editValidatedOrderData (ValidatedOrder validatedOrder) {
+    public ValidatedOrder editValidatedOrderData(ValidatedOrder validatedOrder) {
 
         System.out.println( "choose order by ID: \n" );
         for (Order order : orderService.getAllOrder()) {
@@ -35,16 +34,16 @@ public class ValidatedOrderConsoleReader {
             int option1 = scanner1.nextInt();
             order = orderService.getOrderById( option1 );
             validatedOrder.setOrder( order );
-            if (order==null) {
-                System.out.println("The order you choose doesn't exist. Please insert different ID. \n");
+            if (order == null) {
+                System.out.println( "The order you choose doesn't exist. Please insert different ID. \n" );
             }
         }
 
-
-        System.out.println("choose initial value: \n");
+        System.out.println( "choose initial value: \n" );
         Scanner scanner2 = new Scanner( System.in );
         int initialValue = scanner2.nextInt();
         validatedOrder.setInitialValue( initialValue );
+
 
         return validatedOrder;
     }

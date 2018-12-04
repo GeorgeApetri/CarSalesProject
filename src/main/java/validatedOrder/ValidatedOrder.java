@@ -6,16 +6,21 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
 
     private int idValidateOrder;
     private Order order;
-    private double initialValue;
+    private int initialValue;
+    private int totalValue;
+    private int difference;
 
     public ValidatedOrder() {
 
     }
 
-    public ValidatedOrder(int idValidateOrder, Order order, double initialValue) {
+    public ValidatedOrder(int idValidateOrder, Order order, int totalValue, int initialValue, int difference) {
+
         this.idValidateOrder = idValidateOrder;
         this.order = order;
+        this.totalValue = totalValue;
         this.initialValue = initialValue;
+        this.difference = difference;
     }
 
     public int getIdValidateOrder() {
@@ -34,19 +39,37 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
         this.order = order;
     }
 
-    public double getInitialValue() {
+    public int getInitialValue() {
         return initialValue;
     }
 
-    public void setInitialValue(double initialValue) {
+    public void setInitialValue(int initialValue) {
         this.initialValue = initialValue;
+    }
+
+    public int getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(int totalValue) {
+        this.totalValue = totalValue;
+    }
+
+    public int getDifference() {
+        return difference;
+    }
+
+    public void setDifference(int difference) {
+        this.difference = difference;
     }
 
     @Override
     public String toString() {
-        return "ID validated order: " + idValidateOrder + "\n"
+        return "\n" + "ID validated order: " + idValidateOrder + "\n"
                 + "order: " + order + "\n"
-                + "initial value: " + initialValue;
+                + "total value: " + totalValue + "\n"
+                + "initial value: " + initialValue + "\n"
+                + "difference: " + difference;
     }
 
     /**
