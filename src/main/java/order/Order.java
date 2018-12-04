@@ -59,7 +59,7 @@ public class Order implements Comparable<Order> {
 
     @Override
     public String toString() {
-        return "ID order: " + idOrder + "\n" + "client: " + client + "\n" + "car: " + car + "\n"
+        return "\n" + "ID order: " + idOrder + "\n" + "client: " + client + "\n" + "car: " + car + "\n"
                 + "quantity: " + quantity;
     }
 }
