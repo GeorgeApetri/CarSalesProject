@@ -44,9 +44,9 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
 
     @Override
     public String toString() {
-        return "idValidateOrder: " + idValidateOrder + "\n"
+        return "ID validated order: " + idValidateOrder + "\n"
                 + "order: " + order + "\n"
-                + "initialValue: " + initialValue;
+                + "initial value: " + initialValue;
     }
 
     /**

@@ -41,6 +41,12 @@ public class ValidatedOrderConsoleMenu {
                 case 3:
                     editValidatedOrder();
                     break;
+                case 4:
+                    deleteValidatedOrder();
+                    break;
+                case 5:
+                    forProductionValidatedOrder();
+                    break;
             }
 
         } while (option != 0);
@@ -55,7 +61,8 @@ public class ValidatedOrderConsoleMenu {
         System.out.println( "1   display all validated order" );
         System.out.println( "2   add validated order" );
         System.out.println( "3   edit initial value for validated order" );
-        System.out.println( "4   validated order ready for production \n" );
+        System.out.println( "4   delete validated order");
+        System.out.println( "5   validated order ready for production \n" );
 
 
     }
@@ -79,9 +86,9 @@ public class ValidatedOrderConsoleMenu {
 
     private void editValidatedOrder () {
 
-        System.out.println("which validated order do you want to edit? enter ID: \n");
-        displayValidatedOrder();
         Scanner scanner = new Scanner( System.in );
+        System.out.println("which validated order do you want to edit? enter ID: ");
+        displayValidatedOrder();
         int id = scanner.nextInt();
         ValidatedOrder validatedOrder = validatedOrderService.getValidatedOrderById( id );
         validatedOrder = validatedOrderConsoleReader.editValidatedOrderData(validatedOrder);
@@ -90,12 +97,23 @@ public class ValidatedOrderConsoleMenu {
 
     }
 
+    private void deleteValidatedOrder() {
 
+        Scanner scanner = new Scanner( System.in );
+        System.out.println("which validated order do you want to delete? enter ID: ");
+        displayValidatedOrder();
+        int id = scanner.nextInt();
+        ValidatedOrder validatedOrder = validatedOrderService.getValidatedOrderById( id );
+        validatedOrderService.deleteValidatedOrder( validatedOrder );
+        System.out.println("validated order successfully deleted. \n");
 
+    }
 
+    private void forProductionValidatedOrder() {
 
+        //todo calculeaza diferenta dintre valoare si avans
+        //todo sterge din validateOrderList
 
-
-
+    }
 
 }
