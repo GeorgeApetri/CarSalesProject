@@ -66,6 +66,9 @@ public class OrderConsoleReader {
         order.setQuantity( quantity );
 
 
+        order.setTotalValue( order.getQuantity() * car.getPrice() );
+
+
         return order;
     }
 

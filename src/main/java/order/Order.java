@@ -9,12 +9,14 @@ public class Order implements Comparable<Order> {
     private Client client;
     private Car car;
     private int quantity;
+    private int totalValue;
 
-    public Order(int idOrder, Client client, Car car, int quantity) {
+    public Order(int idOrder, Client client, Car car, int quantity, int totalValue) {
         this.idOrder = idOrder;
         this.client = client;
         this.car = car;
         this.quantity = quantity;
+        this.totalValue = totalValue;
     }
 
     public Order() {
@@ -53,6 +55,15 @@ public class Order implements Comparable<Order> {
         this.quantity = quantity;
     }
 
+    public int getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(int totalValue) {
+        this.totalValue = totalValue;
+    }
+
+
     public int compareTo (Order o) {
         return idOrder - o.idOrder;
     }
@@ -60,6 +71,6 @@ public class Order implements Comparable<Order> {
     @Override
     public String toString() {
         return "\n" + "ID order: " + idOrder + "\n" + "client: " + client + "\n" + "car: " + car + "\n"
-                + "quantity: " + quantity;
+                + "quantity: " + quantity + "\n" + "total value: " + totalValue;
     }
 }

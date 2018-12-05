@@ -7,18 +7,20 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
     private int idValidateOrder;
     private Order order;
     private int initialValue;
-    private int totalValue;
     private int difference;
+
+
+    //TODO: totalValue = car price * quantity; difference = totalValue - initialValue
+
 
     public ValidatedOrder() {
 
     }
 
-    public ValidatedOrder(int idValidateOrder, Order order, int totalValue, int initialValue, int difference) {
+    public ValidatedOrder(int idValidateOrder, Order order, int initialValue, int difference) {
 
         this.idValidateOrder = idValidateOrder;
         this.order = order;
-        this.totalValue = totalValue;
         this.initialValue = initialValue;
         this.difference = difference;
     }
@@ -47,14 +49,6 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
         this.initialValue = initialValue;
     }
 
-    public int getTotalValue() {
-        return totalValue;
-    }
-
-    public void setTotalValue(int totalValue) {
-        this.totalValue = totalValue;
-    }
-
     public int getDifference() {
         return difference;
     }
@@ -67,7 +61,6 @@ public class ValidatedOrder implements Comparable<ValidatedOrder>{
     public String toString() {
         return "\n" + "ID validated order: " + idValidateOrder + "\n"
                 + "order: " + order + "\n"
-                + "total value: " + totalValue + "\n"
                 + "initial value: " + initialValue + "\n"
                 + "difference: " + difference;
     }
