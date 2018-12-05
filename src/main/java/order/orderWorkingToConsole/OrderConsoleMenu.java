@@ -39,7 +39,7 @@ public class OrderConsoleMenu {
                     editOrder();
                     break;
                 case 4:
-                    deleteOrder();
+                    delOrder();
                     break;
             }
         } while (option != 0);
@@ -86,7 +86,7 @@ public class OrderConsoleMenu {
 
     }
 
-    private void deleteOrder() {
+    private void delOrder() {
 
         Scanner scanner = new Scanner( System.in );
         System.out.println( "which order do you want to delete? enter ID: " );

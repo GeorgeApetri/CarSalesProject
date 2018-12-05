@@ -40,7 +40,7 @@ public class ClientConsoleMenu {
                     editClient();
                     break;
                 case 4:
-                    deleteClient();
+                    delClient();
                     break;
             }
         } while (option != 0);
@@ -90,7 +90,7 @@ public class ClientConsoleMenu {
 
     }
 
-    private void deleteClient() {
+    private void delClient() {
 
         Scanner scanner = new Scanner( System.in );
         System.out.println("which client do you want to delete? enter ID: ");

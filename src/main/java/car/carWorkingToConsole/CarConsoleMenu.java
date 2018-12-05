@@ -41,7 +41,7 @@ public class CarConsoleMenu {
                     editCar();
                     break;
                 case 4:
-                    deleteCar();
+                    delCar();
                     break;
             }
         } while (option != 0);
@@ -91,7 +91,7 @@ public class CarConsoleMenu {
 
     }
 
-    private void deleteCar() {
+    private void delCar() {
 
         Scanner scanner = new Scanner( System.in );
         System.out.println("which car do you want to delete? enter ID: ");

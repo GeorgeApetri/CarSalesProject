@@ -44,6 +44,8 @@ public class ValidatedOrderConsoleReader {
         int initialValue = scanner2.nextInt();
         validatedOrder.setInitialValue( initialValue );
 
+        validatedOrder.setDifference( order.getTotalValue() - validatedOrder.getInitialValue() );
+
 
         return validatedOrder;
     }
