@@ -1,5 +1,7 @@
 package validatedOrder.validatedOrderWorkingToConsole;
 
+import order.Order;
+import order.OrderService;
 import util.ServiceInstances;
 import validatedOrder.ValidatedOrder;
 import validatedOrder.ValidatedOrderService;
@@ -8,9 +10,12 @@ import java.util.Scanner;
 
 public class ValidatedOrderConsoleMenu {
 
-    ValidatedOrderService validatedOrderService = ServiceInstances.getInstance().getValidatedOrderService();
-    ValidatedOrderConsoleWriter validatedOrderConsoleWriter = new ValidatedOrderConsoleWriter();
-    ValidatedOrderConsoleReader validatedOrderConsoleReader = new ValidatedOrderConsoleReader();
+    private ValidatedOrderService validatedOrderService = ServiceInstances.getInstance().getValidatedOrderService();
+    private ValidatedOrderConsoleWriter validatedOrderConsoleWriter = new ValidatedOrderConsoleWriter();
+    private ValidatedOrderConsoleReader validatedOrderConsoleReader = new ValidatedOrderConsoleReader();
+
+    private Order order = new Order(  );
+    private OrderService orderService = ServiceInstances.getInstance().getOrderService();
 
     public void displayMenuValidatedOrders() {
 
@@ -117,6 +122,11 @@ public class ValidatedOrderConsoleMenu {
         System.out.println( "validated order successfully send in production.");
         System.out.println("payment difference is: " + validatedOrder.getDifference() + "\n");
         validatedOrderService.deleteValidatedOrder( validatedOrder );
+        order = validatedOrder.getOrder();
+        orderService.deleteOrder( order );
+        System.out.println("order with ID " + order.getIdOrder() + " has been removed from the order list!");
+        System.out.println("validated order with ID " + validatedOrder.getIdValidateOrder()
+                + " has been removed from the validated order list!" + "\n");
 
     }
 }
