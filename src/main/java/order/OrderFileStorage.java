@@ -1,16 +1,22 @@
 package order;
 
+import com.google.gson.Gson;
 import util.GenericStore;
+import util.Paths;
 
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class OrderFileStorage extends GenericStore<Order> {
 
-    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\order.json";
+    public OrderFileStorage() {
+        this.orderList = readJson();
+    }
 
-    private List<Order> orderList = new ArrayList<Order>(  );
+    private List<Order> orderList;
 
     @Override
     public Order add(Order value) {
@@ -64,6 +70,11 @@ public class OrderFileStorage extends GenericStore<Order> {
 
     @Override
     public String getFilePath() {
-        return filePath;
+        return Paths.ORDER_FILE_PATH;
+    }
+
+    @Override
+    protected List<Order> getListFromJson(Gson gson, Reader reader) {
+        return new ArrayList<>( Arrays.asList(gson.fromJson(reader, Order[].class)));
     }
 }

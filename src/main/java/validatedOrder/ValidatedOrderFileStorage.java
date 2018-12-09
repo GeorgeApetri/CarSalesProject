@@ -1,17 +1,22 @@
 package validatedOrder;
 
+import com.google.gson.Gson;
 import util.GenericStore;
+import util.Paths;
 
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class ValidatedOrderFileStorage extends GenericStore<ValidatedOrder> {
 
-    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\validatedOrder.json";
+    public ValidatedOrderFileStorage() {
+        this.validatedOrderList = readJson();
+    }
 
-    private List<ValidatedOrder> validatedOrderList = new ArrayList<>(  );
-
+    private List<ValidatedOrder> validatedOrderList;
 
     @Override
     public ValidatedOrder add(ValidatedOrder value) {
@@ -64,7 +69,12 @@ public class ValidatedOrderFileStorage extends GenericStore<ValidatedOrder> {
 
     @Override
     public String getFilePath() {
-        return filePath;
+        return Paths.VALIDATED_ORDER_FILE_PATH;
+    }
+
+    @Override
+    protected List<ValidatedOrder> getListFromJson(Gson gson, Reader reader) {
+        return new ArrayList<>( Arrays.asList(gson.fromJson(reader, ValidatedOrder[].class)));
     }
 
 }

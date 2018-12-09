@@ -3,12 +3,12 @@ package util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class GenericStore<T> {
+
 
     public abstract T add(T value);
 
@@ -22,13 +22,28 @@ public abstract class GenericStore<T> {
 
     public abstract String getFilePath();
 
-    protected void writeJson() {
-        try (Writer writer = new FileWriter(getFilePath())) {
-            Gson gson = new GsonBuilder().create();
+    protected abstract List<T> getListFromJson(Gson gson, Reader reader);
+
+
+
+    protected final void writeJson() {
+        try(Writer writer = new OutputStreamWriter(new FileOutputStream(getFilePath()) , "UTF-8")){
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(getAll(), writer);
         } catch (IOException e) {
             System.out.println("Exception occured: " + e.getMessage());
         }
     }
+
+    protected List<T> readJson(){
+        try(Reader reader = new InputStreamReader(new FileInputStream(getFilePath()), "UTF-8")){
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return getListFromJson( gson, reader );
+        } catch (IOException e) {
+            System.out.println("Exception occured: " + e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
 
 }

@@ -1,16 +1,22 @@
 package car;
 
+import com.google.gson.Gson;
 import util.GenericStore;
+import util.Paths;
 
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class CarFileStorage extends GenericStore<Car> {
 
-    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\cars.json";
+    public CarFileStorage() {
+        this.carList = readJson();
+    }
 
-    private List<Car> carList = new ArrayList<>();
+    private List<Car> carList;
 
     @Override
     public Car add(Car value) {
@@ -62,6 +68,11 @@ public class CarFileStorage extends GenericStore<Car> {
 
     @Override
     public String getFilePath() {
-        return filePath;
+        return Paths.CAR_FILE_PATH;
+    }
+
+    @Override
+    protected List<Car> getListFromJson(Gson gson, Reader reader) {
+        return new ArrayList<>( Arrays.asList(gson.fromJson(reader, Car[].class)));
     }
 }

@@ -1,16 +1,23 @@
 package client;
 
+import com.google.gson.Gson;
 import util.GenericStore;
+import util.Paths;
 
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class ClientFileStorage extends GenericStore<Client> {
 
-    private static final String filePath = "D:\\JavaTest\\CarSalesManagement\\client.json";
+    public ClientFileStorage() {
+        this.clientList = readJson();
+    }
 
-    private List<Client> clientList = new ArrayList<Client>(  );
+    private List<Client> clientList;
+
 
     @Override
     public Client add(Client value) {
@@ -64,7 +71,12 @@ public class ClientFileStorage extends GenericStore<Client> {
 
     @Override
     public String getFilePath() {
-        return filePath;
+        return Paths.CLIENT_FILE_PATH;
+    }
+
+    @Override
+    protected List<Client> getListFromJson(Gson gson, Reader reader) {
+        return new ArrayList<>( Arrays.asList(gson.fromJson(reader, Client[].class)));
     }
 }
 
