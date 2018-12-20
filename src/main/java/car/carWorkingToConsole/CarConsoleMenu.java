@@ -2,10 +2,10 @@ package car.carWorkingToConsole;
 
 import car.Car;
 import car.CarService;
+import util.ScannerInIntSingleton;
 import util.ServiceInstances;
 
 import java.util.List;
-import java.util.Scanner;
 
 
 public class CarConsoleMenu {
@@ -16,12 +16,11 @@ public class CarConsoleMenu {
 
     public void displayMenuCars() {
 
-        Scanner scanner = new Scanner( System.in );
         int option;
         do {
             displayCarOption();
             System.out.println("select car option: \n");
-            option = scanner.nextInt();
+            option = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
             switch (option) {
                 case 0:
                     System.out.println( "Program menu: \n" );
@@ -80,10 +79,9 @@ public class CarConsoleMenu {
 
     private void editCar() {
 
-        Scanner scanner = new Scanner( System.in );
         System.out.println("which car do you want to edit? enter ID: ");
         displayCars();
-        int id = scanner.nextInt();
+        int id = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
         Car car = carService.getCarById( id );
         car = carConsoleReader.editCarData( car );
         carService.updateCar( car );
@@ -93,10 +91,9 @@ public class CarConsoleMenu {
 
     private void delCar() {
 
-        Scanner scanner = new Scanner( System.in );
         System.out.println("which car do you want to delete? enter ID: ");
         displayCars();
-        int id = scanner.nextInt();
+        int id = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
         Car car = carService.getCarById( id );
         carService.deleteCar(car);
         System.out.println("car successfully deleted. \n");

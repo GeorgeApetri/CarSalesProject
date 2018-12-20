@@ -2,8 +2,7 @@ package car.carWorkingToConsole;
 
 import car.Car;
 import car.CarPriceElements;
-
-import java.util.Scanner;
+import util.ScannerInIntSingleton;
 
 public class CarConsoleReader {
 
@@ -25,8 +24,6 @@ public class CarConsoleReader {
 
     public Car editCarData(Car car) {
 
-        Scanner scanner = new Scanner( System.in );
-
         int value;
 
         int valueCategory = 0;
@@ -34,7 +31,7 @@ public class CarConsoleReader {
         System.out.println( "category: " );
         System.out.println( "1   suv" );
         System.out.println( "2   sedan" );
-        optionCategory = scanner.nextInt();
+        optionCategory = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
         if (optionCategory == 1) {
             car.setCategory( "suv" );
             valueCategory = valueCategory + carPriceElements.getSuv();
@@ -49,7 +46,7 @@ public class CarConsoleReader {
         System.out.println( "combustible: " );
         System.out.println( "1   benzine" );
         System.out.println( "2   diesel" );
-        optionCombustible = scanner.nextInt();
+        optionCombustible = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
         if (optionCombustible == 1) {
             car.setCombustible( "benzine" );
             valueCombustible = valueCombustible + carPriceElements.getBenzine();
@@ -64,7 +61,7 @@ public class CarConsoleReader {
         System.out.println( "transmission: " );
         System.out.println( "1   automatic" );
         System.out.println( "2   manual" );
-        optionTransmission = scanner.nextInt();
+        optionTransmission = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
         if (optionTransmission == 1) {
             car.setTransmission( "automatic" );
             valueTransmission = valueTransmission + carPriceElements.getAutomatic();
@@ -79,7 +76,7 @@ public class CarConsoleReader {
         System.out.println( "engine capacity: " );
         System.out.println( "1   1500" );
         System.out.println( "2   2000" );
-        optionEngineCapacity = scanner.nextInt();
+        optionEngineCapacity = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
         if (optionEngineCapacity == 1) {
             car.setEngineCapacity( 1500 );
             valueEngineCapacity = valueEngineCapacity + carPriceElements.getEc1500();
@@ -106,7 +103,7 @@ public class CarConsoleReader {
         System.out.println( "color: " );
         System.out.println( "1   red" );
         System.out.println( "2   blue" );
-        optionColor = scanner.nextInt();
+        optionColor = ScannerInIntSingleton.INSTANCE_INT.readIntInput();
         if (optionColor == 1) {
             car.setColor( "red" );
             valueColor = valueColor + carPriceElements.getRed();
